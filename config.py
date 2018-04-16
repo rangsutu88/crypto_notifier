@@ -65,10 +65,7 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MAIL_SENDER = 'Admin <arcoadmin@arco.com>'
     MAIL_DEFAULT_SENDER = os.environ.get("MAIL_DEFAULT_SENDER")
-
-    BITCOIN_API_URL = "https://api.coinmarketcap.com/v1/ticker/bitcoin/"
-    IFTT_BASE_URL = "https://maker.ifttt.com/trigger/{event}/with/key/"
-
+    
     @staticmethod
     def init_app(app):
         """Initializes the current application"""
