@@ -22,10 +22,10 @@ login_manager.session_protection = "strong"
 login_manager.login_view = "auth.login"
 
 mail = Mail()
-app_logger = logging.getLogger("BucketListApiLogger")
+app_logger = logging.getLogger("AppLogger")
 
 
-class BucketListApp(Flask):
+class App(Flask):
     """
     Custom application class subclassing Flask application. This is to ensure more modularity in
      terms of static files and templates. This way a module will have its own templates and the
@@ -68,7 +68,7 @@ def create_app(config_name):
     :return: a new WSGI Flask app
     :rtype: Flask
     """
-    app = BucketListApp()
+    app = App()
 
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
@@ -197,5 +197,7 @@ def register_app_blueprints(app_):
     :param app_: the current flask app
     """
     from app.mod_auth import auth
+    from app.mod_notifications import notifications
 
     app_.register_blueprint(auth)
+    app_.register_blueprint(notifications)

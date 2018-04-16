@@ -60,23 +60,14 @@ class Config(object):
     MAIL_USE_TLS = True
 
     # gmail authentication
-    MAIL_SUBJECT_PREFIX = '[Arco]'
+    MAIL_SUBJECT_PREFIX = '[BitcoinNotifications]'
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MAIL_SENDER = 'Admin <arcoadmin@arco.com>'
     MAIL_DEFAULT_SENDER = os.environ.get("MAIL_DEFAULT_SENDER")
 
-    # # credentials for external service accounts
-    # OAUTH_CREDENTIALS = {
-    #     "facebook": {
-    #         "id": os.environ["FACEBOOK_ID"],
-    #         "secret": os.environ["FACEBOOK_SECRET"]
-    #     },
-    #     "google": {
-    #         "id": os.environ["GOOGLE_ID"],
-    #         "secret": os.environ["GOOGLE_SECRET"]
-    #     }
-    # }
+    BITCOIN_API_URL = "https://api.coinmarketcap.com/v1/ticker/bitcoin/"
+    IFTT_BASE_URL = "https://maker.ifttt.com/trigger/{event}/with/key/"
 
     @staticmethod
     def init_app(app):
