@@ -197,7 +197,7 @@ def register_app_blueprints(app_):
     :param app_: the current flask app
     """
     from app.mod_auth import auth
-    from app.mod_notifications import notifications
+    from app.mod_crypto import crypto
 
     app_.register_blueprint(auth)
-    app_.register_blueprint(notifications)
+    app_.register_blueprint(crypto)
