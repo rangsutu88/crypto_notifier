@@ -1,6 +1,8 @@
 # Crypto Notifier
 
-
+[![CircleCI](https://circleci.com/gh/BrianLusina/crypto_notifier.svg?style=svg)](https://circleci.com/gh/BrianLusina/crypto_notifier)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c9e4016eaa614b0f9509008857435aaf)](https://www.codacy.com/app/BrianLusina/crypto_notifier?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BrianLusina/crypto_notifier&amp;utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/BrianLusina/crypto_notifier/branch/master/graph/badge.svg)](https://codecov.io/gh/BrianLusina/crypto_notifier)
 
 A very basic Flask application that notifies on crypto currency price updates.
 Notification updates are send to [IFTTT](https://ifttt.com) and [Telegram](https://telegram.org/).
