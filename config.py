@@ -3,18 +3,14 @@ Configurations for flask application. These are global variables that the app wi
 lifetime
 """
 import os
-from abc import ABCMeta, abstractmethod
-from click import echo, style
+from abc import ABCMeta
+from setup_env import  setup_env
+from app.__tasks__ import app_schedules
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-if os.path.exists(".env"):
-    echo(style(text="Importing environment variables", fg="green", bold=True))
-    for line in open(".env"):
-        var = line.strip().split("=")
-        if len(var) == 2:
-            os.environ[var[0]] = var[1]
+setup_env()
 
 
 class Config(object):
@@ -60,12 +56,29 @@ class Config(object):
     MAIL_USE_TLS = True
 
     # gmail authentication
-    MAIL_SUBJECT_PREFIX = '[BitcoinNotifications]'
+    MAIL_SUBJECT_PREFIX = '[CryptoNotifications]'
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MAIL_SENDER = 'Admin <arcoadmin@arco.com>'
     MAIL_DEFAULT_SENDER = os.environ.get("MAIL_DEFAULT_SENDER")
-    
+
+    CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
+    CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND")
+    CELERY_ENABLE_UTC = True
+    CELERY_IMPORTS = ('app.mod_crypto.tasks')
+    CELERY_TASK_RESULT_EXPIRES = 30
+    CELERY_TIMEZONE = 'UTC'
+
+    CELERY_ACCEPT_CONTENT = ['json', 'msgpack', 'yaml']
+    CELERY_TASK_SERIALIZER = 'json'
+    CELERY_RESULT_SERIALIZER = 'json'
+
+    CELERYBEAT_SCHEDULE = app_schedules
+
+    REDIS_SERVER = os.environ.get("REDIS_SERVER")
+    REDIS_PORT = os.environ.get("REDIS_PORT")
+    REDIS_DB = os.environ.get("REDIS_DB")
+
     @staticmethod
     def init_app(app):
         """Initializes the current application"""

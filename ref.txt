@@ -1,1 +1,3 @@
-Reference: https://realpython.com/python-bitcoin-ifttt/
+References:
+1. https://realpython.com/python-bitcoin-ifttt/
+2. https://realpython.com/testing-third-party-apis-with-mocks/
