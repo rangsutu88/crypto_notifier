@@ -6,6 +6,7 @@ __pycache__/
 *$py.class
 .vscode/
 .idea/
+.venv/
 # C extensions
 *.so
 coverage/
@@ -161,6 +162,5 @@ fabric.properties
 [Ll]ib
 [Ll]ib64
 [Ll]ocal
-[Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
