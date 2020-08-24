@@ -19,7 +19,7 @@ flask==0.12.2
 idna==2.6
 importlib-metadata==0.19
 itsdangerous==0.24
-jinja2==2.9.6
+jinja2==2.10.1
 kombu==4.6.4
 mako==1.0.7
 markupsafe==1.0
