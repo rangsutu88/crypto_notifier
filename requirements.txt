@@ -15,7 +15,7 @@ flask-migrate==2.1.1
 flask-script==2.0.6
 flask-sqlalchemy==2.3.1
 flask-testing==0.6.2
-flask==0.12.2
+flask==0.12.3
 idna==2.6
 importlib-metadata==0.19
 itsdangerous==0.24
